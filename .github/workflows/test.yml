@@ -8,5 +8,12 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14.17.0'
-      - run: npm install
-      - run: npm run build
+      - name: Node modules installation
+        run: npm install
+      - name: Build project
+        run: npm run build
+      - name: Deploying the project
+        env:
+          VERCEL_ORG_ID: cQWqxIsW3NgivhQwl00umIpf
+          VERCEL_PROJECT_ID: prj_EJ5IfRJv9vKTkEDGaK5PdarVJSA5
+        run: npm run deploy
