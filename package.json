@@ -15,7 +15,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "deploy": "cd build && vc --production --token=M3baMQvBH715ZimFbRL0BNoJ"
+    "deploy": "cd build && vc --prod --token=M3baMQvBH715ZimFbRL0BNoJ"
   },
   "eslintConfig": {
     "extends": [
