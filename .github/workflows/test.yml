@@ -12,8 +12,11 @@ jobs:
         run: npm install
       - name: Build project
         run: npm run build
+      - name: Sets the vercel env
+        run: |
+          cd build
+          mkdir .vercel
+          touch project.json
+          echo '{"orgId":"cQWqxIsW3NgivhQwl00umIpf","projectId":"prj_EJ5IfRJv9vKTkEDGaK5PdarVJSA5"}' > project.json
       - name: Deploying the project
-        env:
-          VERCEL_ORG_ID: cQWqxIsW3NgivhQwl00umIpf
-          VERCEL_PROJECT_ID: prj_EJ5IfRJv9vKTkEDGaK5PdarVJSA5
         run: npm run deploy
