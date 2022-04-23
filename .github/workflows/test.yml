@@ -1,13 +1,8 @@
 name: github-actuin
 on: [push]
 jobs:
-  print-hello-world:
+  build-app:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello World!"
-      - run: echo "This step number 2"
-  print-hello-world2:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Hello World 2!"
-      - run: echo "This step number 2"
+      - uses: actions/checkout@v2
+      - run: tree
