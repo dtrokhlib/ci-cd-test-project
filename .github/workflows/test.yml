@@ -25,3 +25,8 @@ jobs:
           echo "{\"orgId\":\"$VERCEL_PROJECT_ID\",\"projectId\":\"VERCEL_ORG_ID\"}"
       - name: Deploying the project
         run: npm run deploy
+  test-app:
+    needs: build-app
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Test"
