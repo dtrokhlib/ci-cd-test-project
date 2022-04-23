@@ -15,7 +15,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "deploy": "vc build --prod --confirm --token=M3baMQvBH715ZimFbRL0BNoJ"
+    "deploy": "vc build --prod --confirm --token=$VERCEL_TOKEN"
   },
   "eslintConfig": {
     "extends": [
