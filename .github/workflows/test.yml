@@ -3,6 +3,8 @@ on: [push]
 jobs:
   build-app:
     runs-on: ubuntu-latest
+    outputs:
+      text: ${{ steps.final-step.outputs.text }}
     env: 
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
@@ -25,8 +27,14 @@ jobs:
           echo "{\"orgId\":\"$VERCEL_PROJECT_ID\",\"projectId\":\"VERCEL_ORG_ID\"}"
       - name: Deploying the project
         run: npm run deploy
+      - name: Setup finish
+        id: final-step
+        run: echo "::set-output name=text::build-job-is-done"
   test-app:
     needs: build-app
     runs-on: ubuntu-latest
+    env: 
+      MY_JOB_OUTPUT: ${{ needs.build-app.outputs.text }}
     steps:
       - run: echo "Test"
+      - run: echo $MY_JOB_OUTPUT
